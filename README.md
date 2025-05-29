@@ -88,3 +88,33 @@ Generate coverage report:
 ```bash
 pytest --cov=summarizer test_summarizer.py
 ```
+
+## Deployment Options
+
+1. **Local Development**:
+   ```bash
+   streamlit run app.py
+   ```
+
+2. **Docker Container**:
+   ```dockerfile
+   FROM python:3.9
+   COPY . /app
+   WORKDIR /app
+   RUN pip install -r requirements.txt
+   CMD ["streamlit", "run", "app.py"]
+   ```
+
+3. **Streamlit Sharing**:
+   - Push to GitHub
+   - Deploy via Streamlit Sharing service
+#### Cloud Deployment
+1. Streamlit Sharing
+2. Google Cloud Run
+3. Azure Container Instances
+
+## Limitations
+
+- Requires significant memory for large texts
+- Performance depends on available hardware
+- Best results with 500+ words of coherent text
